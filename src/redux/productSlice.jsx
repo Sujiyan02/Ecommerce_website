@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Define the initial state for the product slice
 const initialState = {
-    products: [],  // Example initial state
+    products: [], 
+    searchTerm : '',
+    filteredData : [],// Example initial state
 };
 
 const productSlice = createSlice({
@@ -18,9 +20,14 @@ const productSlice = createSlice({
         removeProduct: (state, action) => {
             state.products = state.products.filter(item => item.id !== action.payload.id);
         },
+        setSearchTerm: (state, action) => {
+            state.searchTerm = action.payload
+            state.filteredData = state.products.filter(product =>
+                product.name.toLowercase().includes(state.searchTerm.toLowerCase()))
+        },
     },
 });
 
 // Export the actions and reducer
-export const { setProducts, addProduct, removeProduct } = productSlice.actions;
+export const { setProducts, addProduct, removeProduct,setSearchTerm } = productSlice.actions;
 export default productSlice.reducer;

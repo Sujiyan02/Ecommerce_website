@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 
-const Register = () => {
+const Register = ({openLogin}) => {
   return (
     <div>
     <h2 className='text-2xl font-bold mb-4'>
@@ -35,7 +35,7 @@ const Register = () => {
     </form>
     <div className='text-center'>
       <span className='text-gray-800'>Already Have An Account</span>
-      <button className='text-red-800'>Login</button>
+      <button className='text-red-800' onClick={openLogin}>Login</button>
     </div>
   </div>
 )

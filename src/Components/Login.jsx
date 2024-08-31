@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 
-const Login = () => {
+const Login = ({openSignup}) => {
   return (
     <div>
       <h2 className='text-2xl font-bold mb-4'>
@@ -35,7 +35,7 @@ const Login = () => {
       </form>
       <div className='text-center'>
         <span className='text-gray-800'>Don't Have An Account</span>
-        <button className='text-red-800'>Sign Up</button>
+        <button className='text-red-800'onClick={openSignup}>Sign Up</button>
       </div>
     </div>
   )
